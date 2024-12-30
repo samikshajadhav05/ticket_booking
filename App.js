@@ -5,13 +5,12 @@ const App = () => {
   const totalSeats = 80;
   const seatsPerRow = 7;
 
-  // Generate seats, all set to available initially
   const generateSeats = () => {
     let seats = [];
     for (let i = 1; i <= totalSeats; i++) {
       seats.push({
         seatNumber: i,
-        isAvailable: true, // All seats are available initially
+        isAvailable: true, 
       });
     }
     return seats;
@@ -22,7 +21,6 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [bookingError, setBookingError] = useState('');
 
-  // Function to book seats with the updated priority logic
   const handleBooking = () => {
     const numSeatsToBook = parseInt(seatInput, 10);
 
@@ -31,12 +29,10 @@ const App = () => {
         let bookedSeats = [];
         let remainingSeatsToBook = numSeatsToBook;
 
-        // First, try to book seats row by row
         for (let rowIndex = 0; rowIndex < Math.ceil(totalSeats / seatsPerRow); rowIndex++) {
             const rowSeats = seats.slice(rowIndex * seatsPerRow, (rowIndex + 1) * seatsPerRow);
             const availableRowSeats = rowSeats.filter(seat => seat.isAvailable);
 
-            // Check if the entire request can be fulfilled in the current row
             if (availableRowSeats.length >= remainingSeatsToBook) {
                 bookedSeats = availableRowSeats.slice(0, remainingSeatsToBook);
                 remainingSeatsToBook = 0;
@@ -44,21 +40,18 @@ const App = () => {
             }
         }
 
-        // If not enough seats are found in rows, try to book the closest available seats
         if (remainingSeatsToBook > 0) {
             const additionalSeats = availableSeats.filter(seat => !bookedSeats.includes(seat));
             bookedSeats = bookedSeats.concat(additionalSeats.slice(0, remainingSeatsToBook));
         }
 
-        // If still not enough seats are available
         if (bookedSeats.length < numSeatsToBook) {
             setBookingError('No more seats available');
         } else {
-            // Mark the booked seats as unavailable
             const updatedSeats = [...seats];
             bookedSeats.forEach(seat => {
                 const seatIndex = updatedSeats.findIndex(s => s.seatNumber === seat.seatNumber);
-                updatedSeats[seatIndex].isAvailable = false; // Mark as booked
+                updatedSeats[seatIndex].isAvailable = false; 
             });
 
             setSeats(updatedSeats);
@@ -72,7 +65,7 @@ const App = () => {
   };
 
   const handleReset = () => {
-    setSeats(generateSeats()); // Reset all seats to available
+    setSeats(generateSeats()); 
     setSeatInput('');
     setErrorMessage('');
     setBookingError('');
@@ -132,3 +125,4 @@ const App = () => {
 };
 
 export default App;
+
