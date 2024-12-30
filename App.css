@@ -1,0 +1,149 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Center the container horizontally */
+  align-items: flex-start; /* Align items to the top */
+  min-height: 100vh;
+  background-color: #f7f7f7;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  gap: 40px;
+}
+
+.seat-box {
+  border: 2px solid #ccc; /* Border around the seat box */
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow for effect */
+  flex: 1; /* Take up remaining space */
+}
+
+.seat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between rows */
+}
+
+.row {
+  display: flex;
+  justify-content: flex-start; /* Align seats within each row */
+  gap: 10px; /* Space between seats */
+}
+
+.seat {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  width: 50px; /* Fixed width for each seat */
+}
+
+.seat:disabled {
+  cursor: not-allowed;
+}
+
+.available {
+  background-color: #28a745; /* Green for available seats */
+}
+
+.unavailable {
+  background-color: #ffc107; /* Yellow for unavailable seats */
+  cursor: not-allowed;
+}
+
+.right-panel {
+  flex: 0 0 200px; /* Fixed width for right panel */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.seat-input {
+  margin-top: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 210px;
+}
+
+.reset-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.book-btn{
+  margin-top: 300px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.book-btn:hover, .reset-btn:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.booking-error {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.display{
+  display: flex;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+h1{
+  padding-left: 10px;
+  font-size:large;
+}
+
+.avaliablebox{
+  background-color: #28a745;
+  border-radius: 5px;
+  width: 200px;
+  height: 40px;
+  margin-left: 10px;
+  
+}
+.book{
+  background-color:#ffc107;
+  border-radius: 5px;
+  width: 200px;
+  height: 40px;
+
+}
